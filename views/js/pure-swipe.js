@@ -69,7 +69,7 @@
         }*/
 
         if (eventType !== '') {
-            switchPage()
+            switchPage(false)
             // fire event on the element that started the swipe
             //startEl.dispatchEvent(new CustomEvent(eventType, { bubbles: true, cancelable: true }));
 

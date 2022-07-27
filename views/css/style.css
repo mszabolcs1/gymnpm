@@ -1,11 +1,31 @@
 body {
-    background-color: rgb(144, 238, 144);
+    background-color: black;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     user-select: none;
     overflow: hidden;
 }
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    99% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes fade {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        background-color: black;
+    }
+}
+
 #container {
     width: 200vw;
     height: 100vh;
@@ -13,23 +33,85 @@ body {
     overflow-x: auto;
     position: relative;
 }
+    #header, #footer {
+        background-color: rgba(255, 255, 255, 0.178);
+        position: absolute;
+        height: 7.5vh;
+        width: 100vw;
+        z-index: 1;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+    #header {
+        top: 0;
+    }
+        #header>div {
+            position: relative;
+            float: left;
+            height: 100%;
+            text-align: center;
+            vertical-align: auto;
+            line-height: 7.5vh;
+        }
+            #startbtn, #pausebtn {
+                width: 30vw;
+            }
+            #totaltime {
+                width: 40vw;
+            }
+    #footer {
+        bottom: 0;
+    }
+        #footer>div {
+            position: relative;
+            float: left;
+            height: 100%;
+            text-align: center;
+            vertical-align: auto;
+            line-height: 7.5vh;
+        }
+            #switchbtn, #setbtn {
+                width: 35vw;
+            }
+            #settingsbtn {
+                width: 30vw;
+            }
+                #settingsbtn>img {
+                    height: 50%;
+                    margin-top: 15%;
+                }
+
 .page {
+    z-index: -1;
     float: left;
     width: 100vw;
     height: 100vh;
+    /*box-shadow: inset 0px 0px 15px 0px #000000;*/
+}
+.page>div {
+    position: absolute;
     text-align: center;
-    font-size: 30px;
-    box-shadow: inset 0px 0px 15px 0px #000000;
+    width: 100vw;
 }
-
-@keyframes slide {
-	0% {
-		transform: translateX(0);
-	}
-    99% {
-		transform: translateX(-100%);
-	}
-	100% {
-		transform: translateX(0);
-	}
-}
+    .excercise {
+        height: 10vw;
+        font-size: 5vw;
+        margin-top: calc(50vh - 22.5vw);
+        vertical-align: auto;
+        line-height: 10vw;
+    }
+    .timer {
+        font-size: 25vw;
+        font-weight: 500;
+        margin-top: calc(50vh - 12.5vw);
+        height: 25vw;
+        vertical-align: auto;
+        line-height: 25vw;
+    }
+    .set {
+        height: 10vw;
+        font-size: 5vw;
+        margin-top: calc(50vh + 12.5vw);
+        vertical-align: auto;
+        line-height: 10vw;
+    }
