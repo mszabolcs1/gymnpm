@@ -10,26 +10,18 @@ body {
     0% {
         transform: translateX(0);
     }
-    99% {
+    99.9999% {
         transform: translateX(-100%);
     }
     100% {
         transform: translateX(0);
     }
 }
-@keyframes fade {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        background-color: black;
-    }
-}
 
 #container {
     width: 200vw;
     height: 100vh;
-    background-color: aquamarine;
+    background-color:#A8C7FF;
     overflow-x: auto;
     position: relative;
 }
