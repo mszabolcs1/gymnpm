@@ -51,11 +51,12 @@
                 if (xDiff > 0) {
                     eventType = 'swiped-left';
                 }
-                else {
+                /*else {
                     eventType = 'swiped-right';
-                }
+                }*/
             }
         }
+        /*
         else {
             if (Math.abs(yDiff) > swipeThreshold && timeDiff < swipeTimeout) {
                 if (yDiff > 0) {
@@ -65,12 +66,12 @@
                     eventType = 'swiped-down';
                 }
             }
-        }
+        }*/
 
         if (eventType !== '') {
-
+            switchPage()
             // fire event on the element that started the swipe
-            startEl.dispatchEvent(new CustomEvent(eventType, { bubbles: true, cancelable: true }));
+            //startEl.dispatchEvent(new CustomEvent(eventType, { bubbles: true, cancelable: true }));
 
             if (console && console.log) console.log(eventType + ' fired on ' + startEl.tagName);
         }
