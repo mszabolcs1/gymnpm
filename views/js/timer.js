@@ -26,9 +26,9 @@ function setOrStart() {
 ///////////////////////////////////////////////
 ///////////////////////////////////////////////
 
-setDuration = 12000
+setDuration = (1000) * 10
 warningTime = setDuration/4
-refreshInterval = 100
+refreshInterval = 10
 setInterval(function() {
     if (running == true) {
 

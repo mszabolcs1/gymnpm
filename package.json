@@ -1,29 +1,23 @@
 {
-    "version": "1.0.0",
-    "name": "gym",
-    "app-name": "gym",
-    "package-name": "webview",
-    "project-type": "webview",
-    "icon": "./assets/icon/icon.png",
-    "dist-path": "./dist",
-    "permission": [
-        "android.permission.INTERNET"
-    ],
-    "description": "",
-    "main": "main.js",
-    "scripts": {
-        "start:dev": "node .",
-        "build": "androidjs build"
-    },
-    "author": "Matyko",
-    "license": "ISC",
-    "dependencies": {
-        "androidjs": "^2.0.2",
-        "swiper": "^8.3.1"
-    },
-    "project-name": "gym",
-    "screenOrientation": "portrait",
-    "theme": {
-        "fullScreen": true
-    }
+  "name": "gymtimer",
+  "package-name": "mypkg",
+  "app-name": "Gym Timer",
+  "project-type": "webview",
+  "icon": "./assets/icon/icon.png",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "permission": ["android.permission.INTERNET"],
+  "scripts": {
+    "test": "node main.js",
+    "build": "androidjs build"
+  },
+  "dist-path": "./dist",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "androidjs": "^1.0.0",
+    "left-pad": "^1.3.0",
+    "socket.io": "^2.2.0"
+  }
 }

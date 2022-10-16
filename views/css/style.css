@@ -29,55 +29,57 @@ body {
         background-color: rgba(255, 255, 255, 0.178);
         position: absolute;
         height: 7.5vh;
+        max-height: 100px;
         width: 100vw;
         z-index: 1;
         font-weight: 600;
         letter-spacing: 1px;
-    }
-    #header {
-        top: 0;
-    }
-        #header>div {
-            position: relative;
-            float: left;
-            height: 100%;
-            text-align: center;
-            vertical-align: auto;
-            line-height: 7.5vh;
         }
-            #startbtn, #pausebtn {
-                width: 30vw;
-            }
-            #totaltime {
-                width: 40vw;
-            }
-    #footer {
-        bottom: 0;
-    }
-        #footer>div {
-            position: relative;
-            float: left;
-            height: 100%;
-            text-align: center;
-            vertical-align: auto;
-            line-height: 7.5vh;
+        #header {
+            top: 0;
         }
-            #switchbtn, #setbtn {
-                width: 35vw;
+            #header>div {
+                position: relative;
+                float: left;
+                height: 100%;
+                text-align: center;
+                vertical-align: auto;
+                line-height: 7.5vh;
             }
-            #settingsbtn {
-                width: 30vw;
-            }
-                #settingsbtn>img {
-                    height: 50%;
-                    margin-top: 15%;
+                #startbtn, #pausebtn {
+                    width: 30vw;
                 }
+                #totaltime {
+                    width: 40vw;
+                }
+        #footer {
+            bottom: 0;
+        }
+            #footer>div {
+                position: relative;
+                float: left;
+                height: 100%;
+                text-align: center;
+                vertical-align: auto;
+                line-height: 7.5vh;
+            }
+                #switchbtn, #setbtn {
+                    width: 35vw;
+                }
+                #settingsbtn {
+                    width: 30vw;
+                }
+                    #settingsbtn>img {
+                        height: 50%;
+                        margin-top: 15%;
+                    }
 
 .page {
     z-index: -1;
     float: left;
     width: 100vw;
     height: 100vh;
+    background-color:#A8C7FF;
     /*box-shadow: inset 0px 0px 15px 0px #000000;*/
 }
 .page>div {

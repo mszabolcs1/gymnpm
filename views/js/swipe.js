@@ -5,10 +5,8 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 // EVENT LISTENERS //
 /////////////////////
 window.onload = (event) => {
-    console.log('niggaa')
     document.getElementById('switchbtn').addEventListener('click', function(){switchPage(false)})
     document.getElementById('setbtn').addEventListener('click', updateSetCounter)
-
 }
 
 
@@ -51,9 +49,8 @@ async function switchPage(mode) {
     document.getElementsByClassName('page')[1].addEventListener("click", updateSetCounter);
     
     //wtf
-    if (pageCount > 1) {
-        //fadeOldPage()
-    }
+    fadeOldPage()
+    
 
     //delete old page
     await sleep(500)
@@ -65,8 +62,9 @@ async function switchPage(mode) {
 
 async function fadeOldPage() {
     for (let i = 0; i < 40; i++) {
-        document.getElementsByClassName('page')[0].style.filter = "brightness(" + (100-i/1.5) + "%)"
-        await sleep(5)
+        document.getElementsByClassName('page')[0].style.filter = "brightness(" + (100-i*1.5) + "%)"
+        //document.getElementById('container').style.filter = "brightness(" + (100-i*1.5) + "%)"
+        await sleep(10)
     }
 }
 
@@ -74,12 +72,6 @@ async function fadeOldPage() {
 function updateExcerciseCounter() {
     document.getElementsByClassName('excercise')[1].innerHTML = 'EXCERCISE ' + pageCount
     setCount = 1
-}
-
-
-//??//??//??//??
-document.onload = (event) => {
-    console.log('page is fully loaded')
 }
 
 function updateSetCounter() {
