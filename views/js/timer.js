@@ -7,13 +7,14 @@ window.addEventListener('load', (event) => {
 
 running = false
 function setOrStart() {
-    if (swiping == false) {
+    if (!swiping) {
         if (!running) {
             running = true
             document.getElementById('startbtn').innerHTML = 'END'
         }
         else if (running) {
             running = false
+            paused = false
             document.getElementById('startbtn').innerHTML = 'START'
             document.getElementById('pausebtn').style.filter = "brightness(" + (50) + "%)"
             document.getElementById('pausebtn').innerHTML = 'PAUSE'

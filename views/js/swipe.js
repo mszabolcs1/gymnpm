@@ -84,6 +84,10 @@ function updateExcerciseCounter() {
 
 function updateSetCounter() {
     if (!running) return
+    if (paused) {
+        pauseOrContinue() //continue if paused without starting new set
+        return
+    }
     //
     setCount += 1
     console.log(setCount)

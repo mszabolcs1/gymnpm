@@ -69,6 +69,8 @@
         }*/
 
         if (eventType !== '') {
+            if (paused) pauseOrContinue()
+
             switchPage(false)
             console.log("swiped");
         }
