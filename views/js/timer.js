@@ -15,14 +15,26 @@ function setOrStart() {
         else if (running) {
             running = false
             document.getElementById('startbtn').innerHTML = 'START'
+            document.getElementById('pausebtn').style.filter = "brightness(" + (50) + "%)"
+            document.getElementById('pausebtn').innerHTML = 'PAUSE'
         }
         switchPage(!running)
     }
 }
 
 paused = false
+remainingSetTime = 0
 function pauseOrContinue() {
-
+    if (!paused) { // PAUSE
+        paused = true
+        document.getElementById('pausebtn').innerHTML = 'CONTINUE'
+        remainingSetTime = endOfSet - currentTime
+    }
+    else { // CONTINUE
+        paused = false
+        document.getElementById('pausebtn').innerHTML = 'PAUSE'
+        endOfSet = new Date().getTime() + remainingSetTime
+    }
 }
 
 
@@ -35,7 +47,7 @@ setDuration = (1000) * 4
 warningTime = setDuration/4
 refreshInterval = 10
 setInterval(function() {
-    if (running == true) {
+    if (running && !paused) {
 
         // SET TIME
         currentTime = new Date().getTime()
