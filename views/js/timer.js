@@ -55,7 +55,7 @@ setInterval(function() {
                 document.getElementsByClassName('timer')[0].innerHTML = pad(setMinutes) + ":" + pad(setSeconds)
             }
             else {
-                document.getElementsByClassName('timer')[0].innerHTML = "-" + pad(setMinutes) + ":" + pad(setSeconds)
+                document.getElementsByClassName('timer')[0].innerHTML = "-" + pad(setMinutes) + ":" + pad(setSeconds) + "&nbsp;"
             }
         }
         else {
@@ -75,15 +75,13 @@ setInterval(function() {
                 document.getElementsByClassName('page')[0].style = "background-color: rgb("+
                     Math.round((1-(setTime/warningTime)) * (red[0]-yellow[0])+yellow[0]) + ", " +
                     Math.round((1-(setTime/warningTime)) * (red[1]-yellow[1])+yellow[1]) + ", " +
-                    Math.round((1-(setTime/warningTime)) * (red[2]-yellow[2])+yellow[2]) + 
-                ");"
+                    Math.round((1-(setTime/warningTime)) * (red[2]-yellow[2])+yellow[2]) + ");"
             }
             else {
                 document.getElementsByClassName('page')[0].style = "background-color: rgb("+
                     Math.round((1-((setTime-warningTime)/(setDuration-warningTime))) * (yellow[0]-green[0])+green[0]) + ", " +
                     Math.round((1-((setTime-warningTime)/(setDuration-warningTime))) * (yellow[1]-green[1])+green[1]) + ", " +
-                    Math.round((1-((setTime-warningTime)/(setDuration-warningTime))) * (yellow[2]-green[2])+green[2]) + 
-                ");"
+                    Math.round((1-((setTime-warningTime)/(setDuration-warningTime))) * (yellow[2]-green[2])+green[2]) + ");"
             }
         }
 
