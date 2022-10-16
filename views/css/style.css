@@ -21,8 +21,7 @@ body {
 #container {
     width: 200vw;
     height: 100vh;
-    background-color:#A8C7FF;
-    overflow-x: auto;
+    overflow: hidden;
     position: relative;
 }
     #header, #footer {
