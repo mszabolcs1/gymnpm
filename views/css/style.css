@@ -45,8 +45,12 @@ body {
                 vertical-align: auto;
                 line-height: 7.5vh;
             }
-                #startbtn, #pausebtn {
+                #startbtn {
                     width: 30vw;
+                }
+                #pausebtn {
+                    width: 30vw;
+                    filter: opacity(40%);
                 }
                 #totaltime {
                     width: 40vw;

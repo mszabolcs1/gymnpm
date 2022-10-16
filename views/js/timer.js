@@ -2,22 +2,27 @@
 window.addEventListener('load', (event) => {
     console.log('dwdwdwwd')
     document.getElementById('startbtn').addEventListener('click', setOrStart)
+    document.getElementById('pausebtn').addEventListener('click', pauseOrContinue)
 })
 
 running = false
 function setOrStart() {
     if (swiping == false) {
-        if (running == false) {
+        if (!running) {
             running = true
             document.getElementById('startbtn').innerHTML = 'END'
-            switchPage(false)
         }
-        else if (running == true) {
+        else if (running) {
             running = false
             document.getElementById('startbtn').innerHTML = 'START'
-            switchPage(true)
         }
+        switchPage(!running)
     }
+}
+
+paused = false
+function pauseOrContinue() {
+
 }
 
 
@@ -45,7 +50,6 @@ setInterval(function() {
             setMinutes = Math.floor((Math.abs(setTime - 1000) % (1000 * 60 * 60)) / (1000 * 60))
             setSeconds = Math.abs(Math.floor((Math.abs(setTime - 1000) % (1000 * 60)) / 1000))
         }
-        console.log(setTime)
 
 
         //setup for new excercies page
