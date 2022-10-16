@@ -26,7 +26,7 @@ function setOrStart() {
 ///////////////////////////////////////////////
 ///////////////////////////////////////////////
 
-setDuration = (1000) * 10
+setDuration = (1000) * 4
 warningTime = setDuration/4
 refreshInterval = 10
 setInterval(function() {
@@ -36,12 +36,27 @@ setInterval(function() {
         currentTime = new Date().getTime()
         setTime = endOfSet - currentTime
 
-        setMinutes = Math.floor((setTime % (1000 * 60 * 60)) / (1000 * 60)), 2
-        setSeconds = Math.abs(Math.floor((setTime % (1000 * 60)) / 1000)), 2
+        // set minutes and seconds on timer (DONT TOUCH)
+        if (setTime >= 0) {
+            setMinutes = Math.floor((Math.abs(setTime) % (1000 * 60 * 60)) / (1000 * 60))
+            setSeconds = Math.abs(Math.floor((Math.abs(setTime) % (1000 * 60)) / 1000))
+        }
+        else {
+            setMinutes = Math.floor((Math.abs(setTime - 1000) % (1000 * 60 * 60)) / (1000 * 60))
+            setSeconds = Math.abs(Math.floor((Math.abs(setTime - 1000) % (1000 * 60)) / 1000))
+        }
+        console.log(setTime)
 
+
+        //setup for new excercies page
         if (document.getElementsByClassName('timer').length == 1) {
             //continue countdown if new page not present
-            document.getElementsByClassName('timer')[0].innerHTML = pad(setMinutes) + ":" + pad(setSeconds)
+            if (setTime >= 0) {
+                document.getElementsByClassName('timer')[0].innerHTML = pad(setMinutes) + ":" + pad(setSeconds)
+            }
+            else {
+                document.getElementsByClassName('timer')[0].innerHTML = "-" + pad(setMinutes) + ":" + pad(setSeconds)
+            }
         }
         else {
             //

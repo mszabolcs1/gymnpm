@@ -1,6 +1,4 @@
 
-## Build
 ```bash
-$ androidjs b
+nate higgers
 ```
-
