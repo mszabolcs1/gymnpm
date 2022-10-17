@@ -20,7 +20,6 @@ async function switchPage(ending) {
     swiping = true
     if (paused) pauseOrContinue()
     //
-
     //hide settings panel
     settingsVisible = true
     openSettings()
@@ -45,12 +44,15 @@ async function switchPage(ending) {
     }
     else if (ending == true) { // stopping
         pageCount = 0
+        //create new page
         newPage.style.background = "#A8C7FF"
         newPage.innerHTML = '<div class="excercise"></div><div class="timer">START</div><div class="set"></div>'
         document.getElementById('container').appendChild(newPage)
         // disable pause pbn
         document.getElementById('pausebtn').style.filter = "opacity(" + (50) + "%)"
         document.getElementById('setbtn').style.filter = "opacity(" + (50) + "%)"
+        //reset totaltimer
+        document.getElementById("totaltime").innerHTML = "00:00:00"
     }
     updateExcerciseCounter(pageCount)
 
@@ -89,6 +91,11 @@ async function fadeOldPage() {
 
 function updateExcerciseCounter() {
     if (!running) return
+    //
+    if (pageCount == 1) {
+        startTime = new Date().getTime()
+        console.log(startTime)
+    }
     //
     document.getElementsByClassName('excercise')[1].innerHTML = 'EXCERCISE ' + pageCount
     setCount = 1

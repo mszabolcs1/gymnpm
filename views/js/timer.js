@@ -47,66 +47,70 @@ function pauseOrContinue() {
 setDuration = 120000
 switchDuration = 183000
 warningTime = setDuration / 3
+startTime = 0
 refreshInterval = 10
 setInterval(function() {
-    if (running && !paused) {
-
-        // SET TIME
+    if (running) {
         currentTime = new Date().getTime()
-        setTime = endOfSet - currentTime
+        // set totaltime
+        totalHours = Math.floor((Math.abs(currentTime - startTime) % (1000 * 60 * 60 * 60)) / (1000 * 60))
+        totalMinutes = Math.floor((Math.abs(currentTime - startTime) % (1000 * 60 * 60)) / (1000 * 60))
+        totalSeconds = Math.abs(Math.floor((Math.abs(currentTime - startTime) % (1000 * 60)) / 1000))
+        document.getElementById('totaltime').innerHTML = pad(totalHours) + ":" + pad(totalMinutes) + ":" + pad(totalSeconds)
+        if (!paused) {
+            // SET TIME
+            setTime = endOfSet - currentTime
 
-        // set minutes and seconds on timer (DONT TOUCH)
-        if (setTime >= 0) {
-            setMinutes = Math.floor((Math.abs(setTime) % (1000 * 60 * 60)) / (1000 * 60))
-            setSeconds = Math.abs(Math.floor((Math.abs(setTime) % (1000 * 60)) / 1000))
-        }
-        else {
-            setMinutes = Math.floor((Math.abs(setTime - 1000) % (1000 * 60 * 60)) / (1000 * 60))
-            setSeconds = Math.abs(Math.floor((Math.abs(setTime - 1000) % (1000 * 60)) / 1000))
-        }
-
-
-        //setup for new excercies page
-        if (document.getElementsByClassName('timer').length == 1) {
-            //continue countdown if new page not present
+            // set minutes and seconds on timer (DONT TOUCH)
             if (setTime >= 0) {
-                document.getElementsByClassName('timer')[0].innerHTML = pad(setMinutes) + ":" + pad(setSeconds)
+                setMinutes = Math.floor((Math.abs(setTime) % (1000 * 60 * 60)) / (1000 * 60))
+                setSeconds = Math.abs(Math.floor((Math.abs(setTime) % (1000 * 60)) / 1000))
             }
             else {
-                document.getElementsByClassName('timer')[0].innerHTML = "-" + pad(setMinutes) + ":" + pad(setSeconds) + "&nbsp;"
+                setMinutes = Math.floor((Math.abs(setTime - 1000) % (1000 * 60 * 60)) / (1000 * 60))
+                setSeconds = Math.abs(Math.floor((Math.abs(setTime - 1000) % (1000 * 60)) / 1000))
             }
-        }
-        else {
-            if (setTime >= 0) {
-                document.getElementsByClassName('timer')[1].innerHTML = pad(setMinutes) + ":" + pad(setSeconds)
-            }
-        }
-        
 
-        
-        // BACKGROUND-COLOR
-        if (document.getElementsByClassName('timer').length == 1) {
-            if (setTime < 0) {
-                //console.log(setTime)
-            }
-            else if (setTime < warningTime) {
-                document.getElementsByClassName('page')[0].style = "background-color: rgb("+
-                    Math.round((1-(setTime/warningTime)) * (red[0]-yellow[0])+yellow[0]) + ", " +
-                    Math.round((1-(setTime/warningTime)) * (red[1]-yellow[1])+yellow[1]) + ", " +
-                    Math.round((1-(setTime/warningTime)) * (red[2]-yellow[2])+yellow[2]) + ");"
-            }
-            else if (setTime >= warningTime && setTime <= setDuration) {
-                document.getElementsByClassName('page')[0].style = "background-color: rgb("+
-                    Math.round((1-((setTime-warningTime)/(setDuration-warningTime))) * (yellow[0]-green[0])+green[0]) + ", " +
-                    Math.round((1-((setTime-warningTime)/(setDuration-warningTime))) * (yellow[1]-green[1])+green[1]) + ", " +
-                    Math.round((1-((setTime-warningTime)/(setDuration-warningTime))) * (yellow[2]-green[2])+green[2]) + ");"
+            //setup for new excercies page
+            if (document.getElementsByClassName('timer').length == 1) {
+                //continue countdown if new page not present
+                if (setTime >= 0) {
+                    document.getElementsByClassName('timer')[0].innerHTML = pad(setMinutes) + ":" + pad(setSeconds)
+                }
+                else {
+                    document.getElementsByClassName('timer')[0].innerHTML = "-" + pad(setMinutes) + ":" + pad(setSeconds) + "&nbsp;"
+                }
             }
             else {
+                if (setTime >= 0) {
+                    document.getElementsByClassName('timer')[1].innerHTML = pad(setMinutes) + ":" + pad(setSeconds)
+                }
+            }
+            
 
+            
+            // BACKGROUND-COLOR
+            if (document.getElementsByClassName('timer').length == 1) {
+                if (setTime < 0) {
+                    //console.log(setTime)
+                }
+                else if (setTime < warningTime) {
+                    document.getElementsByClassName('page')[0].style = "background-color: rgb("+
+                        Math.round((1-(setTime/warningTime)) * (red[0]-yellow[0])+yellow[0]) + ", " +
+                        Math.round((1-(setTime/warningTime)) * (red[1]-yellow[1])+yellow[1]) + ", " +
+                        Math.round((1-(setTime/warningTime)) * (red[2]-yellow[2])+yellow[2]) + ");"
+                }
+                else if (setTime >= warningTime && setTime <= setDuration) {
+                    document.getElementsByClassName('page')[0].style = "background-color: rgb("+
+                        Math.round((1-((setTime-warningTime)/(setDuration-warningTime))) * (yellow[0]-green[0])+green[0]) + ", " +
+                        Math.round((1-((setTime-warningTime)/(setDuration-warningTime))) * (yellow[1]-green[1])+green[1]) + ", " +
+                        Math.round((1-((setTime-warningTime)/(setDuration-warningTime))) * (yellow[2]-green[2])+green[2]) + ");"
+                }
+                else {
+
+                }
             }
         }
-
-        
     }
 }, refreshInterval)
 
