@@ -45,7 +45,8 @@ function pauseOrContinue() {
 ///////////////////////////////////////////////
 
 setDuration = (1000) * 15
-warningTime = setDuration/4
+switchDuration = (1000) * 30
+warningTime = setDuration / 3
 refreshInterval = 10
 setInterval(function() {
     if (running && !paused) {
@@ -76,9 +77,9 @@ setInterval(function() {
             }
         }
         else {
-            //
-            document.getElementsByClassName('timer')[1].innerHTML = pad(Math.floor(((setDuration+500) % (1000 * 60 * 60)) / (1000 * 60)), 2) + ":" + pad(Math.abs(Math.floor(((setDuration+500) % (1000 * 60)) / 1000)), 2)
-            
+            if (setTime >= 0) {
+                document.getElementsByClassName('timer')[1].innerHTML = pad(setMinutes) + ":" + pad(setSeconds)
+            }
         }
         
 
@@ -94,11 +95,14 @@ setInterval(function() {
                     Math.round((1-(setTime/warningTime)) * (red[1]-yellow[1])+yellow[1]) + ", " +
                     Math.round((1-(setTime/warningTime)) * (red[2]-yellow[2])+yellow[2]) + ");"
             }
-            else {
+            else if (setTime >= warningTime && setTime <= setDuration) {
                 document.getElementsByClassName('page')[0].style = "background-color: rgb("+
                     Math.round((1-((setTime-warningTime)/(setDuration-warningTime))) * (yellow[0]-green[0])+green[0]) + ", " +
                     Math.round((1-((setTime-warningTime)/(setDuration-warningTime))) * (yellow[1]-green[1])+green[1]) + ", " +
                     Math.round((1-((setTime-warningTime)/(setDuration-warningTime))) * (yellow[2]-green[2])+green[2]) + ");"
+            }
+            else {
+
             }
         }
 

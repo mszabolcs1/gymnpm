@@ -60,6 +60,7 @@ body {
             height: 15vh;
             max-height: 200px;
             background-color: rgba(255, 255, 255, 0.15);
+            visibility: hidden;
         }
             .setting {
                 height: 7.5vh;
