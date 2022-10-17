@@ -1,10 +1,7 @@
 window.addEventListener('load', (event) => {
     document.getElementById('settingsbtn').addEventListener('click', openSettings)
 
-    document.getElementById("switchdurmin").value = Math.floor((Math.abs(switchDuration) % (1000 * 60 * 60)) / (1000 * 60))
-    document.getElementById("switchdursec").value = Math.abs(Math.floor((Math.abs(switchDuration) % (1000 * 60)) / 1000))
-    document.getElementById("setdurmin").value = Math.floor((Math.abs(switchDuration) % (1000 * 60 * 60)) / (1000 * 60))
-    document.getElementById("setdursec").value = Math.abs(Math.floor((Math.abs(switchDuration) % (1000 * 60)) / 1000))
+    readDurations()
 })
 
 settingsVisible = false
@@ -22,13 +19,21 @@ function openSettings() {
     }
     else {
         settingsVisible = false
-        saveSettings()
         //document.getElementById("settingspanel").parentElement.removeChild(settingsDiv)
        document.getElementById("settingspanel").style.visibility = "hidden"
     }
 }
 
+function readDurations() {
+    if (document.getElementById("switchdurmin").value != 0) {
+        document.getElementById("switchdurmin").value = Math.floor((switchDuration - (switchDuration % (1000 * 60))) / 60000)
+    }
+    document.getElementById("switchdursec").value = Math.floor(switchDuration % (1000 * 60) / 1000)
+    if (document.getElementById("setdurmin").value != 0) {
+        document.getElementById("setdurmin").value = Math.floor((setDuration - (setDuration % (1000 * 60))) / 60000)    }
 
+    document.getElementById("setdursec").value = Math.floor(setDuration % (1000 * 60) / 1000)
+}
 
 
 function saveSettings() {
@@ -37,6 +42,11 @@ function saveSettings() {
     setMin = document.getElementById("setdurmin").value
     setSec = document.getElementById("setdursec").value
 
-    switchDuration = (60*switchMin+switchSec)*1000
-    setDuration = (60*setMin+setSec)*1000
+    console.log("switchDuration set to: " + (parseInt(60*switchMin)+parseInt(switchSec))*1000)
+    console.log("setDuration set to: " + (parseInt(60*setMin)+parseInt(setSec))*1000)
+
+    switchDuration = (parseInt(60*switchMin)+parseInt(switchSec))*1000
+    setDuration = (parseInt(60*setMin)+parseInt(setSec))*1000
+    
+    readDurations()
 }

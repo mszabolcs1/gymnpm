@@ -21,6 +21,11 @@ async function switchPage(ending) {
     if (paused) pauseOrContinue()
     //
 
+    //hide settings panel
+    settingsVisible = true
+    openSettings()
+    saveSettings()
+
     //create new page
     newPage = document.createElement('div')
     newPage.setAttribute('class', 'page')
@@ -92,6 +97,10 @@ function updateExcerciseCounter() {
 function updateSetCounter() {
     if (!running) return
     if (paused) pauseOrContinue()
+    //hide settings panel
+    settingsVisible = true
+    openSettings()
+    saveSettings()
     //
     setCount += 1
     console.log(setCount)
