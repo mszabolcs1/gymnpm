@@ -25,7 +25,7 @@ body {
     position: relative;
 }
     #header, #settingspanel, #footer {
-        background-color: rgba(255, 255, 255, 0.3);
+        background-color: rgba(255, 255, 255, 0.2);
         position: absolute;
         height: 7.5vh;
         max-height: 100px;
@@ -59,7 +59,7 @@ body {
             bottom: 7.5vh;
             height: 15vh;
             max-height: 200px;
-            background-color: rgba(255, 255, 255, 0.15);
+            background-color: rgba(255, 255, 255, 0.1);
             visibility: hidden;
         }
             .setting {

@@ -56,7 +56,7 @@ async function switchPage(ending) {
 
 
     ////
-    endOfSet = new Date().getTime() + switchDuration + 1000
+    endOfSet = new Date().getTime() + setDuration + switchDuration + 1000
     
     //document.getElementsByClassName('page')[0].setAttribute('style', 'animation: fade 2s cubic-bezier(0.76, 0, 0.24, 1) 0s 1 normal forwards;')
     
@@ -101,6 +101,8 @@ function updateSetCounter() {
     settingsVisible = true
     openSettings()
     saveSettings()
+    //
+    document.getElementsByClassName('page')[0].style.background = "rgb(144,238,144)"
     //
     setCount += 1
     console.log(setCount)

@@ -25,22 +25,22 @@ function openSettings() {
 }
 
 function readDurations() {
-    if (document.getElementById("switchdurmin").value != 0) {
-        document.getElementById("switchdurmin").value = Math.floor((switchDuration - (switchDuration % (1000 * 60))) / 60000)
-    }
+    document.getElementById("switchdurmin").value = Math.floor((switchDuration - (switchDuration % (1000 * 60))) / 60000)
     document.getElementById("switchdursec").value = Math.floor(switchDuration % (1000 * 60) / 1000)
-    if (document.getElementById("setdurmin").value != 0) {
-        document.getElementById("setdurmin").value = Math.floor((setDuration - (setDuration % (1000 * 60))) / 60000)    }
-
+    document.getElementById("setdurmin").value = Math.floor((setDuration - (setDuration % (1000 * 60))) / 60000)
     document.getElementById("setdursec").value = Math.floor(setDuration % (1000 * 60) / 1000)
 }
 
 
 function saveSettings() {
-    switchMin = document.getElementById("switchdurmin").value
-    switchSec = document.getElementById("switchdursec").value
-    setMin = document.getElementById("setdurmin").value
-    setSec = document.getElementById("setdursec").value
+    if (document.getElementById("switchdurmin").value == "") switchMin = 0
+    else switchMin = document.getElementById("switchdurmin").value
+    if (document.getElementById("switchdursec").value == "") switchSec = 0
+    else switchSec = document.getElementById("switchdursec").value
+    if (document.getElementById("setdurmin").value == "") setMin = 0
+    else setMin = document.getElementById("setdurmin").value
+    if (document.getElementById("setdursec").value == "") setSec = 0
+    else setSec = document.getElementById("setdursec").value
 
     console.log("switchDuration set to: " + (parseInt(60*switchMin)+parseInt(switchSec))*1000)
     console.log("setDuration set to: " + (parseInt(60*setMin)+parseInt(setSec))*1000)
