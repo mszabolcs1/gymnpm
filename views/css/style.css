@@ -83,10 +83,10 @@ body {
                     text-align: center;
                 }
                     #switchdurmin, #setdurmin {
-                        margin-right: 40px;
+                        margin-right: 10px;
                     }
                     #switchdursec, #setdursec {
-                        margin-right: 10px;
+                        margin-right: 40px;
                     }
                 *:focus{
                     outline: none;
