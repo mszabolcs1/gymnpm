@@ -16,7 +16,6 @@ function setOrStart() {
             running = false
             paused = false
             document.getElementById('startbtn').innerHTML = 'START'
-            document.getElementById('pausebtn').style.filter = "brightness(" + (50) + "%)"
             document.getElementById('pausebtn').innerHTML = 'PAUSE'
         }
         switchPage(!running)
@@ -26,6 +25,7 @@ function setOrStart() {
 paused = false
 remainingSetTime = 0
 function pauseOrContinue() {
+    if (!running) return
     if (!paused) { // PAUSE
         paused = true
         document.getElementById('pausebtn').innerHTML = 'CONTINUE'

@@ -18,7 +18,9 @@ async function switchPage(mode) {
     if (swiping == true) {return}
     //disable swiping while swiping
     swiping = true
-    
+    if (paused) pauseOrContinue()
+    //
+
     //create new page
     newPage = document.createElement('div')
     newPage.setAttribute('class', 'page')
@@ -34,6 +36,7 @@ async function switchPage(mode) {
         document.getElementById('container').appendChild(newPage)
         // enable pause pbn
         document.getElementById('pausebtn').style.filter = "opacity(" + (100) + "%)"
+        document.getElementById('setbtn').style.filter = "opacity(" + (100) + "%)"
     }
     else if (mode == true) { // stopping
         pageCount = 0
@@ -41,7 +44,8 @@ async function switchPage(mode) {
         newPage.innerHTML = '<div class="excercise"></div><div class="timer">START</div><div class="set"></div>'
         document.getElementById('container').appendChild(newPage)
         // disable pause pbn
-        document.getElementById('pausebtn').style.filter = "opacity(" + (40) + "%)"
+        document.getElementById('pausebtn').style.filter = "opacity(" + (50) + "%)"
+        document.getElementById('setbtn').style.filter = "opacity(" + (50) + "%)"
     }
     updateExcerciseCounter(pageCount)
 
@@ -53,7 +57,10 @@ async function switchPage(mode) {
     
     //add click event listener to new page
     document.getElementsByClassName('page')[1].addEventListener("click", updateSetCounter);
+    document.getElementsByClassName('page')[1].addEventListener("click", function(){if (paused) {pauseOrContinue()}});
     
+    
+
     //////
     fadeOldPage()
     
@@ -84,10 +91,7 @@ function updateExcerciseCounter() {
 
 function updateSetCounter() {
     if (!running) return
-    if (paused) {
-        pauseOrContinue() //continue if paused without starting new set
-        return
-    }
+    if (paused) pauseOrContinue()
     //
     setCount += 1
     console.log(setCount)
