@@ -1,7 +1,7 @@
 {
-  "name": "gymtimer",
+  "name": "Frankie Coach",
   "package-name": "mypkg",
-  "app-name": "Gym Timer",
+  "app-name": "Frankie Coach",
   "project-type": "webview",
   "icon": "./assets/icon/icon.png",
   "version": "1.0.0",

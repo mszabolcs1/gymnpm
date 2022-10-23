@@ -45,7 +45,7 @@ function pauseOrContinue() {
 ///////////////////////////////////////////////
 
 setDuration = 120000
-switchDuration = 183000
+switchDuration = 180000
 warningTime = setDuration / 3
 startTime = 0
 refreshInterval = 10
